@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 
 
-public class Collision : MonoBehaviour
+public class CollidingObjects : MonoBehaviour
 {
 
     // Start is called before the first frame update
@@ -45,35 +45,7 @@ public class Collision : MonoBehaviour
                 Debug.Log("Powerup!");
                 break;
                 
-            /*case "TurnRateUp":
-                Destroy(other.gameObject);
-                if (!TurnUp)
-                {
-                    StartCoroutine("PowerUpTurn");
-                }
-                break;*/
-        }
+          }
     }
-   /* IEnumerator PowerUpSpeed()
-    {
-        SpeedUp = true;
-        PlayerSpeed *= 1.5f;
-        yield return new WaitForSeconds(3.5f);
-        PlayerSpeed /= 1.5f;
-        SpeedUp = false;
-
-    }
-    IEnumerator PowerUpTurn()
-    {
-        TurnUp = true;
-        TurnRate *= 3f;
-        yield return new WaitForSeconds(5f);
-        TurnRate /= 3f;
-        TurnUp = false;
-    }*/
-
-
-
-
-
+  
 }
