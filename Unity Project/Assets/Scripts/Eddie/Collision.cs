@@ -17,17 +17,15 @@ public class Collision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Score.text = PlayerScore.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerScore++;
-        Score.text = PlayerScore.ToString();
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
 
         string ObjType = other.gameObject.tag.ToString();
