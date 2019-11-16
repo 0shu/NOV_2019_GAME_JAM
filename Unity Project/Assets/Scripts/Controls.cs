@@ -147,7 +147,8 @@ public class Controls : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D obstacle)
     {
-        if (obstacle.gameObject.tag == "StoppingObst")
+        //Obstacle
+        if (obstacle.gameObject.tag == "BlockingObst")
         {
             player.velocity = new Vector2(player.velocity.x - obstaclePushBack, player.velocity.y);
         }
@@ -161,6 +162,21 @@ public class Controls : MonoBehaviour
             {
                 gotSpeedSteal = true;
             }
+        }
+        else if (obstacle.gameObject.tag == "VaultingObst")
+        {
+            if (sliding == true)
+            {
+                gotSpeedBoost = true;
+            }
+            else
+            {
+                gotSpeedSteal = true;
+            }
+        }
+        else if (obstacle.gameObject.tag == "SpeedBoost")
+        {
+            gotSpeedBoost = true;
         }
     }
 

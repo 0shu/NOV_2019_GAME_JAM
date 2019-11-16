@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - SlidingObst
+  - SpeedBoost
+  - BlockingObst
+  - VaultingObst
   layers:
   - Default
   - TransparentFX
