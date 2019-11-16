@@ -3,10 +3,12 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-
+    string sendScore = "";
     public int playerScore = 0;
     public Text scoreText;
     public float exactScore = 0;
+    int secondsPassed = 0;
+    int bonusPoints = 0;
 
     void Start()
     {
@@ -16,12 +18,20 @@ public class Score : MonoBehaviour
     void Update()
     {
         exactScore += Time.deltaTime;
-        playerScore = Mathf.FloorToInt(exactScore);
+        int secondsPassed = Mathf.FloorToInt(exactScore);
+        playerScore = secondsPassed + bonusPoints;
         scoreText.text = "Score: " + playerScore.ToString();
     }
 
-    public int GetScore()
+    public void ScoreUp()
     {
-        return playerScore;
+        bonusPoints += 10;
+        scoreText.text = "Score: " + playerScore.ToString();
+
+    }
+    public string GetScore()
+    {
+        sendScore = "Your score is " + playerScore.ToString() + " points!";
+        return sendScore;
     }
 }

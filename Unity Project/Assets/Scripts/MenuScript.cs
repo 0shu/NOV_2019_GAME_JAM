@@ -7,12 +7,12 @@ public class MenuScript : MonoBehaviour
 {
     public void ButtonStart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Eddie2");
     }
 
     public void ButtonSetting()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("CreditsScene");
     }
 
     public void ButtonQuit()

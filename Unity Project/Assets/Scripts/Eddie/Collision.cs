@@ -11,13 +11,10 @@ using UnityEngine.UI;
 public class Collision : MonoBehaviour
 {
 
-    public Text Score;
-    public int PlayerScore = 0;
-
     // Start is called before the first frame update
     void Start()
     {
-        Score.text = PlayerScore.ToString();
+
     }
 
     // Update is called once per frame
@@ -35,12 +32,13 @@ public class Collision : MonoBehaviour
             case "Death":
                 Destroy(other.gameObject);
                 Debug.Log("Death!");
+                GetComponent<GameOverLora>().OnDeath();
+
                 break;
             case "ScoreUp":
                 Destroy(other.gameObject);
-                PlayerScore += 100;
-                Score.text = "Score: " + PlayerScore.ToString();
-                Debug.Log("ScoreUp!");
+                GetComponent<Score>().ScoreUp();
+
                 break;
             case "Powerup":
                 Destroy(other.gameObject);
@@ -56,7 +54,6 @@ public class Collision : MonoBehaviour
                 break;*/
         }
     }
-
    /* IEnumerator PowerUpSpeed()
     {
         SpeedUp = true;
