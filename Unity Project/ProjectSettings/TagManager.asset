@@ -8,6 +8,10 @@ TagManager:
   - Death
   - ScoreUp
   - Ground
+  - SlidingObst
+  - SpeedBoost
+  - BlockingObst
+  - VaultingObst
   layers:
   - Default
   - TransparentFX
@@ -18,9 +22,9 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
+  - TopLane
+  - MiddleLane
+  - BottomLane
   - 
   - 
   - 
@@ -44,4 +48,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top Lane
+    uniqueID: 4107115929
+    locked: 0
+  - name: Middle Lane
+    uniqueID: 1076190935
+    locked: 0
+  - name: Bottom Lane
+    uniqueID: 505754027
     locked: 0
