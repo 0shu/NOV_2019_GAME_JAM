@@ -23,7 +23,8 @@ public class Collision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PlayerScore++;
+        Score.text = PlayerScore.ToString();
     }
 
     void OnTriggerEnter(Collider other)
