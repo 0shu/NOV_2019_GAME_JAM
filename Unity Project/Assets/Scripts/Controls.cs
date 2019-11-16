@@ -59,13 +59,15 @@ public class Controls : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.W)) && (currentLane < 2))
         {
             currentLane++;
-            player.position = new Vector2(player.position.x, laneHeight[currentLane]);
+            player.position = new Vector3(player.position.x, laneHeight[currentLane]);
+            gameObject.layer--;
         }
         //Move Down Lane
         else if ((Input.GetKeyDown(KeyCode.S)) && (currentLane > 0))
         {
             currentLane--;
             player.position = new Vector2(player.position.x, laneHeight[currentLane]);
+            gameObject.layer++;
         }
     }
 
