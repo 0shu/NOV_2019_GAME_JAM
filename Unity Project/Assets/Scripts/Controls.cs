@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Controls : MonoBehaviour
 {
     Rigidbody2D player;
     float speedIncreaser = 0.5f;
     float maxVelocity = 2;
 
     GameObject ground;
+    float maxJumpVel = 2;
 
     void Start()
     {
@@ -43,9 +44,9 @@ public class Player : MonoBehaviour
             player.velocity = new Vector2(player.velocity.x + speedIncreaser, player.velocity.y);
         }
 
-        if (((Input.GetKey(KeyCode.UpArrow) || (Input.GetKey(KeyCode.W) && (GroundedCheck() == true)))
+        if ((Input.GetKey(KeyCode.UpArrow)) || (Input.GetKey(KeyCode.W) && (GroundedCheck() == true)))
         {
-            player.velocity = new Vector2(player.velocity.x, player.velocity.y + speedIncreaser);
+            player.velocity = new Vector2(player.velocity.x, player.velocity.y + maxJumpVel);
         }
     }
 
@@ -53,8 +54,8 @@ public class Player : MonoBehaviour
     {
         float distToGround;
         bool grounded;
-
         distToGround = Vector2.Distance(ground.transform.position, transform.position);
+
         if (distToGround < 0.01f)
         {
             grounded = true;
