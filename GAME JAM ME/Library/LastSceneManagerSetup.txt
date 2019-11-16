@@ -1,9 +1,0 @@
-sceneSetups:
-<<<<<<< HEAD:Unity Project/Library/LastSceneManagerSetup.txt
-- path: Assets/Scenes/Eddie2.unity
-=======
-- path: Assets/Scenes/SampleScene.unity
->>>>>>> master:GAME JAM ME/Library/LastSceneManagerSetup.txt
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
