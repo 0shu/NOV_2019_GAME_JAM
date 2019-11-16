@@ -5,15 +5,16 @@ using UnityEngine;
 public class Controls : MonoBehaviour
 {
     Rigidbody2D player;
-    float acceleration = 0.5f;
-    float maxVelocity = 2;
+    float acceleration = 0.25f;
+    float maxVelocity = 10;
 
-    float[] laneheight = {0, 10, 20};
+    float[] laneHeight = {-5, 0, 5};
     uint currentLane;
 
-    float maxJumpVel = 2.0f;
-    float jumpVelocity = 2;
-    bool jumped = false;
+    float maxJumpHeight = 1.75f;
+    float jumpVelocity = 4;
+    bool jumping = false;
+    float jumpandFallAcc = 3.5f;
 
     float obsticalPushBack = 5f;
 
@@ -23,12 +24,13 @@ public class Controls : MonoBehaviour
         player.velocity = new Vector2(0, 0);
 
         currentLane = 1;
-        player.position = new Vector2(player.position.x, laneheight[currentLane]);
+        player.position = new Vector2(player.position.x, laneHeight[currentLane]);
     }
 
     void Update()
     {
         PlayerMovement();
+
     }
 
     void PlayerMovement()
@@ -37,13 +39,13 @@ public class Controls : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.W)) && (currentLane < 2))
         {
             currentLane++;
-            player.position = new Vector2(player.position.x, laneheight[currentLane + 1]);
+            player.position = new Vector2(player.position.x, laneHeight[currentLane]);
         }  
         //Move Down Lane
         else if ((Input.GetKeyDown(KeyCode.S)) && (currentLane > 0))
         {
             currentLane--;
-            player.position = new Vector2(player.position.x, laneheight[currentLane - 1]);
+            player.position = new Vector2(player.position.x, laneHeight[currentLane]);
         }
 
         //Move Left
@@ -52,33 +54,45 @@ public class Controls : MonoBehaviour
             player.velocity = new Vector2(player.velocity.x - acceleration, player.velocity.y);
         }
         //Decellerating
-        else if (player.velocity.x <= 0)
+        else if (player.velocity.x < 0)
         {
-            player.velocity = new Vector2(player.velocity.x + acceleration, player.velocity.y);
+            player.velocity = new Vector2(player.velocity.x + (acceleration/2), player.velocity.y);
         }
+
         //Move Right
         if ((Input.GetKey(KeyCode.D)) && (player.velocity.x < maxVelocity))
         {
             player.velocity = new Vector2(player.velocity.x + acceleration, player.velocity.y);
         }
         //Decellerating
-        else if (player.velocity.x >= 0)
+        else if (player.velocity.x > 0)
         {
-            player.velocity = new Vector2(player.velocity.x - acceleration, player.velocity.y);
+            player.velocity = new Vector2(player.velocity.x - (acceleration/2), player.velocity.y);
         }
 
         //Jump
-        if ((Input.GetKeyDown(KeyCode.Space) && (player.position.x > -maxVelocity)) && (jumped == false))
+        if (Input.GetKey(KeyCode.Space) && (jumping == false))
         {
-            player.velocity = new Vector2(player.velocity.x, jumpVelocity);
+            player.velocity = new Vector2(player.velocity.x, jumpandFallAcc);
+
+            if (player.position.y >= (laneHeight[currentLane] + maxJumpHeight))
+            {
+                jumping = true;
+            }
         }
-        else if (player.position.y > laneheight[currentLane])
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
-            player.velocity = new Vector2(player.velocity.x, -acceleration);
+            jumping = true;
         }
-        else if (player.position.y < laneheight[currentLane])
+      
+        if ((player.position.y > laneHeight[currentLane]) && (jumping == true))
         {
-            player.position = new Vector2(player.position.x, laneheight[currentLane]);
+            player.velocity = new Vector2(player.velocity.x, -jumpandFallAcc);
+        }
+        else if (player.position.y <= laneHeight[currentLane])
+        {
+            player.position = new Vector2(player.position.x, laneHeight[currentLane]);
+            jumping = false;
         }
     }
 
