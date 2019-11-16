@@ -4,6 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
+=======
+  - Powerup
+  - Death
+  - ScoreUp
+>>>>>>> Eddie2
   - Ground
   layers:
   - Default
