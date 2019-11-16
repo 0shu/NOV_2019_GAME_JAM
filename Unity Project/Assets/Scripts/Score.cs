@@ -6,6 +6,7 @@ public class Score : MonoBehaviour
 
     public int playerScore = 0;
     public Text scoreText;
+    public float exactScore = 0;
 
     void Start()
     {
@@ -14,8 +15,13 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerScore++;
+        exactScore += Time.deltaTime;
+        playerScore = Mathf.FloorToInt(exactScore);
         scoreText.text = "Score: " + playerScore.ToString();
+    }
 
+    public int GetScore()
+    {
+        return playerScore;
     }
 }
