@@ -63,7 +63,7 @@ public class RandomObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_transform.position = new Vector3(m_transform.position.x + 0.05f, 0.0f, -10.0f);
+        //m_transform.position = new Vector3(m_transform.position.x + 0.05f, 0.0f, -10.0f);
         float x = m_transform.position.x;
         if (x > nextSpawn)
         {
@@ -87,6 +87,7 @@ public class RandomObstacles : MonoBehaviour
                 //slot.spawnPreset = Random.Range(0, m_Spawnables.Length);
 
                 slot.position = new Vector3(x_offset, y_offset, 0.0f);
+                slot.lane = i;
 
                 float j = (x - m_posAtLastSpawn[i]) / maxDesiredDistBetweeenLaneItems;
                 slot.spawnProb = Mathf.Clamp(Random.Range(j - 0.15f, j + 0.15f), 0.0f, 1.0f);
@@ -104,6 +105,7 @@ public class RandomObstacles : MonoBehaviour
                 {
                     m_posAtLastSpawn[spawnSlots[i].lane] = x;
                     GameObject temp = Instantiate(m_Spawnables[spawnSlots[i].spawnPreset].prefab, spawnSlots[i].position, Quaternion.identity);
+                    temp.layer = (2 - spawnSlots[i].lane) + 9;
                     temp.transform.SetParent(m_spawnObj.transform);
                     spawned++;
                 }

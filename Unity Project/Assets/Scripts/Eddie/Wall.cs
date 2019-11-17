@@ -21,6 +21,5 @@ public class Wall : MonoBehaviour
     {
         //  rb.velocity = rb.transform.right * Speed;
         rb.velocity = new Vector2(Speed, rb.velocity.y);
-
     }
 }

@@ -10,7 +10,7 @@ public class Controls : MonoBehaviour
     float maxVelocity = 10;
 
     //Lane Variables
-    float[] laneHeight = {-5, 0, 5};
+    float[] laneHeight = {-3.78f, -2.53f, -1.28f};
     uint currentLane;
 
     //Jump Variables

@@ -12,6 +12,8 @@ TagManager:
   - SpeedBoost
   - BlockingObst
   - VaultingObst
+  - EnableSlide
+  - EnableVault
   layers:
   - Default
   - TransparentFX
