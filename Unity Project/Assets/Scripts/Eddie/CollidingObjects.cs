@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class CollidingObjects : MonoBehaviour
 {
+    public AudioSource[] DeathSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,24 @@ public class CollidingObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            int randomSFX = Random.Range(0, 2);
+            DeathSFX[randomSFX].Play();
+            Debug.Log("Playing SFX " + randomSFX);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            DeathSFX[0].Play();
+            Debug.Log("Playing SFX 0");
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            DeathSFX[1].Play();
+            Debug.Log("Playing SFX 1");
+        }
+
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -31,6 +50,7 @@ public class CollidingObjects : MonoBehaviour
         {
             case "Death":
                 Destroy(other.gameObject);
+                DeathSFX[0].Play();
                 Debug.Log("Death!");
                 GetComponent<GameOverLora>().OnDeath();
 
