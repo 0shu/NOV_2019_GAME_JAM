@@ -41,12 +41,16 @@ public class PlayerV2 : MonoBehaviour
     float m_powerSlideSpeedMult;
 
     Transform m_transform;
+    Animator m_animator;
 
     // Start is called before the first frame update
     void Start()
     {
         m_transform = GetComponent<Transform>();
+        m_animator = GetComponent<Animator>();
         m_for = FindObjectOfType<FrameOfReference>();
+
+        m_transform.localPosition = new Vector3(m_transform.localPosition.x, m_laneHeight[m_currentLane], 0.0f);
     }
 
     // Update is called once per frame
@@ -59,6 +63,8 @@ public class PlayerV2 : MonoBehaviour
     {
         DoSickShit();
         ChangeLane();
+
+        m_animator.speed = m_for.m_currentSpeed * 0.5f;
     }
 
     void ChangeLane()
@@ -93,6 +99,7 @@ public class PlayerV2 : MonoBehaviour
             m_jumping = false;
             m_powerSliding = false;
             // TODO: Animation
+            m_animator.SetBool("m_isPowerSliding", false);
         }
         
         // Jumping
@@ -103,7 +110,7 @@ public class PlayerV2 : MonoBehaviour
 
             Debug.Log("Jumping.");
 
-            // TODO: Animation.
+            m_animator.SetTrigger("m_isJumping");
         }
         else if ((Input.GetKeyDown(KeyCode.D)) && (m_slideableCount > 0) && !m_jumping && !m_powerSliding)
         {
@@ -112,7 +119,7 @@ public class PlayerV2 : MonoBehaviour
 
             Debug.Log("Sliding.");
 
-            // TODO: Animation.
+            m_animator.SetTrigger("m_isSliding");
         }
         else if ((Input.GetKeyDown(KeyCode.D)) && (m_boostableCount > 0) && !m_jumping)
         {
@@ -123,7 +130,7 @@ public class PlayerV2 : MonoBehaviour
 
             Debug.Log("Powersliding.");
 
-            // TODO: Animation.
+            m_animator.SetBool("m_isPowerSliding", true);
         }
 
     }

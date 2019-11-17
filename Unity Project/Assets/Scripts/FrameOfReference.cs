@@ -31,6 +31,11 @@ public class FrameOfReference : MonoBehaviour
 
     private Wall m_wall;
 
+    [SerializeField]
+    GameObject[] m_grounds;
+    int m_nextGroundToTeleport = 0;
+    float m_nextGroundMovePoint = 9.6f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,5 +80,13 @@ public class FrameOfReference : MonoBehaviour
 
         float increment = m_currentSpeed * Time.deltaTime;
         m_transform.position = new Vector3(m_transform.position.x + increment, 0.0f, 0.0f);
+
+        if (m_transform.position.x > m_nextGroundMovePoint)
+        {
+            m_grounds[m_nextGroundToTeleport].transform.position = new Vector3(m_grounds[m_nextGroundToTeleport].transform.position.x + (19.2f * 3.0f), 0.0f, -2.0f);
+            m_nextGroundToTeleport++;
+            m_nextGroundToTeleport = (m_nextGroundToTeleport >= m_grounds.Length) ? 0 : m_nextGroundToTeleport;
+            m_nextGroundMovePoint += 19.2f;
+        }
     }
 }
