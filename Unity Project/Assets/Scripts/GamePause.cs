@@ -8,6 +8,8 @@ public class GamePause : MonoBehaviour
     public Canvas gamePause;
     public Button resumeButton;
     public static bool GameIsPaused = false;
+    public AudioSource PauseSFX;
+
 
     void Start()
     {
@@ -27,21 +29,19 @@ public class GamePause : MonoBehaviour
             GameIsPaused = true;
             gamePause.enabled = true;
             resumeButton.enabled = true;
+            PauseSFX.Play();
         }
         else if (Input.GetKeyDown(KeyCode.P) && GameIsPaused == true)
         {
-            Time.timeScale = 1f;
-            GameIsPaused = false;
-            gamePause.enabled = false;
-            resumeButton.enabled = false;
+            Resume();
         }
-   }
+    }
     public void Resume()
     {
+        PauseSFX.Play();
         Time.timeScale = 1f;
         GameIsPaused = false;
         gamePause.enabled = false;
         resumeButton.enabled = false;
-        Debug.Log("button");
     }
 }

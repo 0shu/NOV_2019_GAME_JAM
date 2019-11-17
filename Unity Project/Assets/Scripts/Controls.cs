@@ -50,7 +50,6 @@ public class Controls : MonoBehaviour
             player.velocity = new Vector2(player.velocity.x - (acceleration / 20), player.velocity.y);
        }
 
-        Debug.Log(player.velocity);
     }
 
     void ChangeLaneCheck()
