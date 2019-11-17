@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Unity Project/Assets/Scripts/Eddie/CollidingObjects.cs.meta
 guid: 28b553d64c63d7442834a72631ac5f8f
+=======
+guid: 1513d51db063fd740bc578dc73681536
+>>>>>>> master:Unity Project/Assets/Scripts/Eddie/CollidingObjects.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
