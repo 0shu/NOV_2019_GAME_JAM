@@ -83,7 +83,7 @@ public class FrameOfReference : MonoBehaviour
 
         if (m_transform.position.x > m_nextGroundMovePoint)
         {
-            m_grounds[m_nextGroundToTeleport].transform.position = new Vector3(m_grounds[m_nextGroundToTeleport].transform.position.x + (19.2f * 3.0f), 0.0f, -2.0f);
+            m_grounds[m_nextGroundToTeleport].transform.position = new Vector3(m_grounds[m_nextGroundToTeleport].transform.position.x + (19.2f * 3.0f), 0.5f, -2.0f);
             m_nextGroundToTeleport++;
             m_nextGroundToTeleport = (m_nextGroundToTeleport >= m_grounds.Length) ? 0 : m_nextGroundToTeleport;
             m_nextGroundMovePoint += 19.2f;
