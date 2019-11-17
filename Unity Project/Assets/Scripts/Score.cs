@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
     void Update()
     {
         exactScore += Time.deltaTime;
-        int secondsPassed = Mathf.FloorToInt(exactScore);
+        secondsPassed = Mathf.FloorToInt(exactScore);
         playerScore = secondsPassed + bonusPoints;
         scoreText.text = "Score: " + playerScore.ToString();
     }

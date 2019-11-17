@@ -36,12 +36,13 @@ public class GameOverLora : MonoBehaviour
     public void PlayAgain()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Eddie2"); // FIX NAME OF THE SCENE
+        SceneManager.LoadScene("GameScene"); // FIX NAME OF THE SCENE
     }
 
     // Back to main menu
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Main Menu"); // FIX NAME OF SCENE
     }
 }

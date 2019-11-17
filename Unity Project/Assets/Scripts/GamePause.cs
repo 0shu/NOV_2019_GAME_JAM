@@ -20,6 +20,7 @@ public class GamePause : MonoBehaviour
 
    void Update()
    {
+
         if (Input.GetKeyDown(KeyCode.P) && GameIsPaused == false)
         {
             Time.timeScale = 0f;
@@ -41,5 +42,6 @@ public class GamePause : MonoBehaviour
         GameIsPaused = false;
         gamePause.enabled = false;
         resumeButton.enabled = false;
+        Debug.Log("button");
     }
 }

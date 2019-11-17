@@ -6,7 +6,7 @@ public class Wall : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    public float Speed;
+    public float Speed = 1;
 
 
     // Start is called before the first frame update

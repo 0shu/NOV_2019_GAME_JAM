@@ -7,7 +7,7 @@ public class MenuScript : MonoBehaviour
 {
     public void ButtonStart()
     {
-        SceneManager.LoadScene("Eddie2");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void ButtonSetting()

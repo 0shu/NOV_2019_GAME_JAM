@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 261140524}
   - component: {fileID: 261140523}
   - component: {fileID: 261140522}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Test Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -452,6 +452,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Over
       objectReference: {fileID: 0}
+    - target: {fileID: 5641667605665258713, guid: 149142c2a7c3b9f47a94b2d351198a93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5641667605665258709, guid: 149142c2a7c3b9f47a94b2d351198a93,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -608,6 +613,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_Alignment
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5641667605665258708, guid: 149142c2a7c3b9f47a94b2d351198a93,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1899319761}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149142c2a7c3b9f47a94b2d351198a93, type: 3}
 --- !u!1 &790319889
@@ -727,7 +737,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 790319889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f312950f9946c4c83b6eeb0b03eaf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f52e3ed48f37d249a11bd9c6de6d96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
@@ -765,16 +775,31 @@ GameObject:
   - component: {fileID: 794002127}
   - component: {fileID: 794002126}
   - component: {fileID: 794002125}
-  - component: {fileID: 794002131}
-  - component: {fileID: 794002130}
   - component: {fileID: 794002124}
-  m_Layer: 0
+  - component: {fileID: 794002130}
+  - component: {fileID: 794002123}
+  m_Layer: 10
   m_Name: Player (1)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &794002123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794002122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49afac31143989842bba031504682561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScore: 0
+  scoreText: {fileID: 1899319761}
+  exactScore: 0
 --- !u!114 &794002124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,7 +809,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 794002122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc35bdefd84e1f344a2b3d9cdb21ff69, type: 3}
+  m_Script: {fileID: 11500000, guid: 28b553d64c63d7442834a72631ac5f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &794002125
@@ -807,7 +832,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794002122}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -925,21 +950,6 @@ MonoBehaviour:
   playAgainButton: {fileID: 666695341}
   backButton: {fileID: 459932813}
   scoreText: {fileID: 1899319761}
---- !u!114 &794002131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 794002122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f35f46253a695cd47bad7b1dbe36dbae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerScore: 0
-  scoreText: {fileID: 1287707209}
-  exactScore: 0
 --- !u!1001 &904418842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1344,7 +1354,7 @@ GameObject:
   - component: {fileID: 1692280324}
   - component: {fileID: 1692280323}
   - component: {fileID: 1692280322}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
