@@ -1,3 +1,3 @@
 # NOV_2019_GAME_JAM
 
-Extra commit.
+First Game Jam for DMU GDS 2020/21
